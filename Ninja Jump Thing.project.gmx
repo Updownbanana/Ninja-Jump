@@ -31,7 +31,6 @@
     <sprite>sprites\spr_road</sprite>
     <sprites name="Scorescreen">
       <sprite>sprites\spr_scorescreen</sprite>
-      <sprite>sprites\spr_scorescreen_button</sprite>
       <sprites name="Numbers">
         <sprite>sprites\spr_scorescreen_num1</sprite>
         <sprite>sprites\spr_scorescreen_num2</sprite>
@@ -61,6 +60,7 @@
     </objects>
     <object>objects\obj_EnemySpawner</object>
     <object>objects\obj_Road</object>
+    <object>objects\obj_Scorescreen</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

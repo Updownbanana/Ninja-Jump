@@ -90,6 +90,7 @@ audio_stop_all()
             <string>///BEWM!!!
 with obj_Player {
     instance_create(x,y,obj_Player_dead)
+    instance_create(x,y,obj_Scorescreen)
     instance_destroy()
 }
 

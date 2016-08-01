@@ -145,6 +145,7 @@ if (phy_speed_y &gt; 10) {
     player_dead.phy_speed_y=phy_speed_y
     player_dead.phy_speed_x=phy_speed_x
     audio_play_sound(snd_Falling, 0, 0)
+    instance_create(x,y,obj_Scorescreen)
     instance_destroy()
 }
 </string>
@@ -333,6 +334,32 @@ if jump &gt; 0{
             <string>///Debugging
 draw_self()
 draw_text(x,y+30,"")
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Debug feature: Press K to kill player
+instance_create(x,y,obj_Player_dead)
+instance_create(x,y,obj_Scorescreen)
+instance_destroy()
 </string>
           </argument>
         </arguments>
