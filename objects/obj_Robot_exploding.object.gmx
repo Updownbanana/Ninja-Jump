@@ -11,26 +11,17 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>604</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set starting variables (COPIED FROM PARENT)
-phy_fixed_rotation = true
-pounced = false
-</string>
-          </argument>
-        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -49,7 +40,6 @@ pounced = false
           <argument>
             <kind>1</kind>
             <string>///Set unique starting variables
-player = noone
 image_speed = 0.5
 </string>
           </argument>
@@ -98,8 +88,10 @@ audio_stop_all()
           <argument>
             <kind>1</kind>
             <string>///BEWM!!!
-player.dead = true
-player = noone
+with obj_Player {
+    instance_create(x,y,obj_Player_dead)
+    instance_destroy()
+}
 
 sprite_index = spr_robot_explosion
 audio_stop_all()
@@ -130,7 +122,6 @@ audio_play_sound(snd_Explosion,2,false)
 if pounced = false {
     exploding = true
     alarm[0] = 30
-    player = other.id
     
     sprite_index = spr_robot_exploding
     audio_play_sound(snd_Alarm,2,true)
@@ -141,25 +132,17 @@ if pounced = false {
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>604</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Be pounced on (COPIED FROM PARENT)
-pounced = true
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>
