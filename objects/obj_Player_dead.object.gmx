@@ -57,7 +57,36 @@ frame = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>This is just here to get the alarm to run. </string>
+            <string>This is just here so the alarm will run. </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var width = window_get_width()
+width = width / 2
+var height = window_get_height()
+height = (height/2) + 700
+if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),width-60,height-51,width+60,height+51) and mouse_check_button_pressed(mb_left) {
+    game_restart()
+}
+</string>
           </argument>
         </arguments>
       </action>
