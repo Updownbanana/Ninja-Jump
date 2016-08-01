@@ -34,6 +34,7 @@ ximp = random_range(-50,50)
 physics_apply_impulse(x,y,ximp,10)
 
 alarm[0] = 50
+frame = 0
 </string>
           </argument>
         </arguments>
@@ -78,8 +79,17 @@ alarm[0] = 50
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if alarm[0] &lt;= 0{
-    draw_sprite_stretched(spr_scorescreen,0,240,720,320,320)
+            <string>if alarm[0] &lt;= 0 {
+
+    width = window_get_width()
+    width = (width/2) - 350
+    height = window_get_height()
+    height = (height/2) - 350
+    draw_sprite_stretched(spr_scorescreen,frame,width,height,700,700)
+    
+    if frame &lt; 9 {
+        frame += 1
+    }
 }
 </string>
           </argument>
