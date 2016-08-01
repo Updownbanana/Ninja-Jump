@@ -9,6 +9,7 @@
     <sound>sound\snd_Jump</sound>
     <sound>sound\snd_Slash</sound>
     <sound>sound\snd_Alarm</sound>
+    <sound>sound\snd_Falling</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Debug">
