@@ -174,15 +174,15 @@ if not pounce{
     
     //Teleport the player and get the distance teleported
     start = y
-    phy_position_y = 864
-    global.dist = 864-start
+    phy_position_y = room_height/2
+    global.dist = room_height/2 - start
 
     //Teleport all robots the same distance and scroll the background
     with (obj_Robot) phy_position_y += global.dist
     background_y[0] -= global.dist
     
     //Finally, reset the start variable to get the height next time
-    start = 864
+    start = room_height / 2
 }
 </string>
           </argument>
