@@ -28,6 +28,18 @@
             <string>///Set variables
 alarm[0] = 50
 frame = 0
+
+//Restart button center
+restartx = window_get_width()
+restartx = restartx / 2
+restarty = window_get_height()
+restarty = (restarty/2) + 16
+
+//Menu button center
+menux = window_get_width()
+menux = menux / 2
+menuy = window_get_height()
+menuy = (menuy / 2) + 214
 </string>
           </argument>
         </arguments>
@@ -72,15 +84,48 @@ frame = 0
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Check for mouse rollover on buttons
+
+//Check restart button
+if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),restartx-219,restarty-92,restartx+219,restarty+92) and frame &gt;= 9 {
+    frame = 10
+//Check menu button
+}else if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),menux-219,menuy-92,menux+219,menuy+92) and frame &gt;= 9 {
+    frame = 11
+//Reset if neither is rolled over
+}else if frame &gt; 9 {
+    frame = 9
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Draw / animate score screen
 if alarm[0] &lt;= 0 {
 
-    var width = window_get_width()
-    width = (width/2) - 350
-    var height = window_get_height()
-    height = (height/2) - 350
-    draw_sprite_stretched(spr_scorescreen,frame,width,height,700,700)
+    //Scorescreen center
+    var screenx = window_get_width()
+    screenx = (screenx/2) - 350
+    var screeny = window_get_height()
+    screeny = (screeny/2) - 350
     
+    draw_sprite_stretched(spr_scorescreen,frame,screenx,screeny,700,700)    
     if frame &lt; 9 {
         frame += 1
     }
@@ -106,13 +151,13 @@ if alarm[0] &lt;= 0 {
           <argument>
             <kind>1</kind>
             <string>///Check for button pressed
-var width = window_get_width()
-width = width / 2
-var height = window_get_height()
-height = (height/2) + 16
-if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),width-219,height-92,width+219,height+92) and mouse_check_button_pressed(mb_left) {
+
+//Check restart button
+if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),restartx-219,restarty-92,restartx+219,restarty+92) and mouse_check_button_pressed(mb_left) {
     game_restart()
 }
+
+//Check menu button
 </string>
           </argument>
         </arguments>
