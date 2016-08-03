@@ -104,6 +104,7 @@ if (pounced){
     instance_create(x,y,obj_Robot_half1)
     instance_create(x,y,obj_Robot_half2)
     instance_destroy()
+    score += 10;
 }
 </string>
           </argument>

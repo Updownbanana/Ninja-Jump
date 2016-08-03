@@ -61,6 +61,7 @@
     <object>objects\obj_EnemySpawner</object>
     <object>objects\obj_Road</object>
     <object>objects\obj_Scorescreen</object>
+    <object>objects\obj_gui</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
