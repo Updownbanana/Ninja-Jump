@@ -135,7 +135,7 @@ if alarm[0] &lt;= 0 {
     draw_set_halign(fa_center)
     draw_set_valign(fa_middle)
     draw_set_color(c_blue)
-    draw_text(screenx+350,screeny+150,str(score))
+    draw_text(screenx+350,screeny+150,string(score))
 }
 </string>
           </argument>
