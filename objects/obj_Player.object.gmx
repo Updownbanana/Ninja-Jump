@@ -109,11 +109,12 @@ alarm[0] = 2
           <argument>
             <kind>1</kind>
             <string>///Follow pounced robot
-if (pounce = true){
+if (pounce){
     if (!instance_exists(robot)) {pounce = false}
     else{
         phy_position_x = robot.phy_position_x
         phy_position_y = robot.phy_position_y
+        phy_speed_y = 0
     }
 }
 </string>
@@ -314,6 +315,7 @@ if pounce{
     jumping = true
     alarm[0] = 1
     pounce = false
+    phy_position_y -= 45
     audio_play_sound(snd_Slash,2,false)
 }
 
