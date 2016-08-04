@@ -10,7 +10,8 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>global.numfont = font_add_sprite(spr_scorescreen_numbers,48,true,25)</code>
+  <code>global.numfont = font_add_sprite(spr_scorescreen_numbers,48,true,25)
+global.numfont_small = font_add_sprite(spr_scorescreen_numbers_small,48,true,4)</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

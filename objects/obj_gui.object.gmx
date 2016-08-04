@@ -11,6 +11,31 @@
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set draw parameters
+draw_set_font(global.numfont_small)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_color(c_blue)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>703</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -25,11 +50,11 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>20</string>
+            <string>40</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>20</string>
+            <string>40</string>
           </argument>
           <argument>
             <kind>1</kind>

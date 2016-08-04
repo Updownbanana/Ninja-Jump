@@ -33,6 +33,7 @@
     <sprites name="Scorescreen">
       <sprite>sprites\spr_scorescreen_numbers</sprite>
       <sprite>sprites\spr_scorescreen</sprite>
+      <sprite>sprites\spr_scorescreen_numbers_small</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
