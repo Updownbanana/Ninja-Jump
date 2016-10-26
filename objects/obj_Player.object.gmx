@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Set starting variables
-phy_fixed_rotation = true
 pounce = false
 jumping = false
 robot = noone
@@ -80,9 +79,8 @@ jump = 2
 if (pounce){
     if (!instance_exists(robot)) {pounce = false}
     else{
-        phy_position_x = robot.phy_position_x
-        phy_position_y = robot.phy_position_y
-        phy_speed_y = 0
+        x = robot.x
+        y = robot.y
     }
 }
 </string>
@@ -106,8 +104,12 @@ if (pounce){
           <argument>
             <kind>1</kind>
             <string>///Point in direction of flight
-dir = point_direction(x,y,x + phy_speed_x,y + phy_speed_y)
-image_angle = dir
+if sprite_index = spr_player_jump {
+    image_angle = direction - 90
+}else{
+    image_angle = 0
+}
+
 </string>
           </argument>
         </arguments>
@@ -129,10 +131,10 @@ image_angle = dir
           <argument>
             <kind>1</kind>
             <string>///Check for falling death
-if (phy_speed_y &gt; 10) {
+if (vspeed &gt; 10) {
     player_dead = instance_create(x,y,obj_Player_dead)
-    player_dead.phy_speed_y=phy_speed_y
-    player_dead.phy_speed_x=phy_speed_x
+    player_dead.speed = speed
+    player_dead.direction = direction
     audio_play_sound(snd_Falling, 0, 0)
     instance_create(x,y,obj_Scorescreen)
     instance_destroy()
@@ -157,9 +159,16 @@ if (phy_speed_y &gt; 10) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Wrap
-if (phy_position_x &lt; 0) or ( phy_position_x &gt; room_width) {
-    phy_speed_x = -phy_speed_x
+            <string>///Bounce and set gravity
+if (x &lt; 0) or ( x &gt; room_width) {
+    hspeed = -hspeed
+}
+
+if (!place_meeting(x-17,y+16,obj_Road) and pounce=false) or mouse_check_button(mb_right) = true{
+    gravity = 0.3
+}else{
+    vspeed = 0
+    gravity = 0
 }
 </string>
           </argument>
@@ -191,6 +200,29 @@ sprite_index = spr_player_standing
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collide with road
+gravity = 0
+vspeed = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_Robot">
       <action>
@@ -217,11 +249,11 @@ if not pounce{
     
     //Teleport the player and get the distance teleported
     start = y
-    phy_position_y = room_height/2
+    y = room_height/2
     global.dist = room_height/2 - start
 
     //Teleport all robots the same distance and scroll the background
-    with (obj_Robot) phy_position_y += global.dist
+    with (obj_Robot) y += global.dist
     background_y[0] -= global.dist
     
     //Finally, reset the start variable to get the height next time
@@ -277,37 +309,40 @@ jump = 2
           <argument>
             <kind>1</kind>
             <string>///Jump
-dir = point_direction(x+16,y+16,mouse_x,mouse_y)
 
+//Destroy pounced robot
 if pounce{
+    //Aesthetic things and pounce variable
     sprite_index = spr_player_jump
     pounce = false
-    phy_position_y -= 45
     audio_play_sound(snd_Slash,2,false)
+    
+    //Get score from robot based on its object name, then destroy it
     with (robot) {
         robot_name = object_get_name(object_index);
         switch (robot_name) {
-            case "obj_Robot":                score += 10; break;
+            case "obj_Robot":           score += 10; break;
             case "obj_Robot_exploding": score += 20; break;
         }
         instance_destroy()
     }
+    
+    //Create robot halves
     instance_create(x,y,obj_Robot_half1)
     instance_create(x,y,obj_Robot_half2)
 }
 
+//Jump if there is a jump available
 if jump &gt; 0{
-    phy_speed_x = 0
-    phy_speed_y = 0
-    physics_apply_impulse(x,y,lengthdir_x(150,dir),lengthdir_y(150,dir))
+    dir = point_direction(x+16,y+16,mouse_x,mouse_y)
+    hspeed = lengthdir_x(10,dir)
+    vspeed = lengthdir_y(10,dir)
     
     jump -= 1
     
     sprite_index = spr_player_jump
     audio_play_sound(snd_Jump,1,false)
 }
-
-
 </string>
           </argument>
         </arguments>
@@ -332,7 +367,7 @@ if jump &gt; 0{
             <kind>1</kind>
             <string>///Debugging
 draw_self()
-//draw_text(x,y+30,"Score:" + string(score))
+draw_text(x,y+30,string(obj_EnemySpawner.zone))
 </string>
           </argument>
         </arguments>
@@ -365,7 +400,7 @@ instance_destroy()
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>2</PhysicsObjectDensity>
@@ -376,10 +411,5 @@ instance_destroy()
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>9,0</point>
-    <point>24,0</point>
-    <point>24,32</point>
-    <point>9,32</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

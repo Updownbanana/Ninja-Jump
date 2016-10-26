@@ -26,20 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///Set variables and apply impulse
-phy_fixed_rotation = false
-
 y = y + 10
-
-ximp = random_range(-50,50)
-physics_apply_impulse(x,y,ximp,10)
-
+gravity = 0.3
 </string>
           </argument>
         </arguments>
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
   <PhysicsObjectDensity>2</PhysicsObjectDensity>
@@ -50,8 +45,5 @@ physics_apply_impulse(x,y,ximp,10)
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>2,0</point>
-    <point>17,17</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

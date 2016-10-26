@@ -53,7 +53,6 @@ global.numfont_small = font_add_sprite(spr_scorescreen_numbers_small,48,true,4)<
   </views>
   <instances>
     <instance objName="obj_EnemySpawner" x="0" y="0" name="inst_10DCCE6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Player" x="224" y="1376" name="inst_1FA4A261" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Road" x="0" y="1408" name="inst_C5CD7FFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Road" x="32" y="1408" name="inst_9E52758D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Road" x="64" y="1408" name="inst_4B16A2FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -72,7 +71,7 @@ global.numfont_small = font_add_sprite(spr_scorescreen_numbers_small,48,true,4)<
     <instance objName="obj_gui" x="32" y="0" name="inst_31414941" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
-  <PhysicsWorld>-1</PhysicsWorld>
+  <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
   <PhysicsWorldRight>1024</PhysicsWorldRight>

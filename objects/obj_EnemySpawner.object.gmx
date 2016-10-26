@@ -30,11 +30,14 @@ alarm[0] = 20
 randomize()
 current = 0
 destination = 0
+spawns = 0
+newz = 0
 
 //Zone enumerator
 enum zones {
     normal,
-    minefield
+    minefield,
+    change //When adding new zones, add them ABOVE this line.
 }
 
 zone = zones.normal
@@ -60,11 +63,48 @@ zone = zones.normal
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Spawn enemies based on zone
+            <string>///Spawn enemies based on zone (state machine)
 switch (zone) {
     case zones.normal: scr_zone_normal() break
     case zones.minefield: scr_zone_minefield() break
+    
+    case zones.change: 
+        scr_zone_change(newz)
+        zone = newz
+    break
 }
+
+spawns += 1
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If enough enemies have been spawned, change zones. [DISABLED]
+/*
+if spawns &gt;= 20 {
+    randomize()
+    r = zones.change - 1
+    newz = irandom_range(zones.normal,r)
+    
+    zone = zones.change
+}
+*/
 </string>
           </argument>
         </arguments>
@@ -104,30 +144,6 @@ switch (zone) {
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="9" enumb="77">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Debug feature: Press M for minefield zone
-zone = zones.minefield
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="9" enumb="69">

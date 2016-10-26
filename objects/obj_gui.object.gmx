@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_speed = 1000
+            <string>///Speed burst at beginning of game
+room_speed = 1000
 alarm[0] = 300
 </string>
           </argument>
@@ -50,6 +51,7 @@ alarm[0] = 300
           <argument>
             <kind>1</kind>
             <string>room_speed = 30
+instance_create(room_width/2,room_height-55,obj_Player)
 </string>
           </argument>
         </arguments>

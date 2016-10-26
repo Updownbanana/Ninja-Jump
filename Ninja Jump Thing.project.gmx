@@ -18,6 +18,8 @@
     </sprites>
     <sprites name="Robots">
       <sprite>sprites\spr_robot</sprite>
+      <sprite>sprites\spr_robot_gunner</sprite>
+      <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_robot_exploding</sprite>
       <sprite>sprites\spr_robot_explosion</sprite>
       <sprite>sprites\spr_robot_half1</sprite>
@@ -35,28 +37,38 @@
       <sprite>sprites\spr_scorescreen</sprite>
       <sprite>sprites\spr_scorescreen_numbers_small</sprite>
     </sprites>
+    <sprite>sprites\spr_zone_breaker</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_zone_normal.gml</script>
-    <script>scripts\scr_zone_minefield.gml</script>
+    <script>scripts\scr_player_kill.gml</script>
+    <scripts name="Zones">
+      <script>scripts\scr_zone_normal.gml</script>
+      <script>scripts\scr_zone_change.gml</script>
+      <script>scripts\scr_zone_minefield.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_Player</object>
     <object>objects\obj_Player_dead</object>
     <objects name="Enemies">
       <object>objects\obj_Robot</object>
+      <object>objects\obj_Robot_gunner</object>
+      <object>objects\obj_bullet</object>
       <object>objects\obj_Robot_exploding</object>
       <object>objects\obj_Robot_half1</object>
       <object>objects\obj_Robot_half2</object>
     </objects>
-    <object>objects\obj_EnemySpawner</object>
+    <objects name="System">
+      <object>objects\obj_EnemySpawner</object>
+      <object>objects\obj_Scorescreen</object>
+      <object>objects\obj_gui</object>
+    </objects>
     <object>objects\obj_Road</object>
-    <object>objects\obj_Scorescreen</object>
-    <object>objects\obj_gui</object>
+    <object>objects\obj_zone_breaker</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
