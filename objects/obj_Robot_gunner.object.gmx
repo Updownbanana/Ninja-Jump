@@ -71,7 +71,7 @@ with bullet {
     dir = irandom(360)
     direction = dir 
     image_angle = dir 
-    speed = 4
+    speed = 6
 }
 
 alarm[0] = 90
