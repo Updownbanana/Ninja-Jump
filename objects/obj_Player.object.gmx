@@ -131,7 +131,7 @@ if sprite_index = spr_player_jump {
           <argument>
             <kind>1</kind>
             <string>///Check for falling death
-if (vspeed &gt; 20) {
+if (vspeed &gt; 15) {
     player_dead = instance_create(x,y,obj_Player_dead)
     player_dead.speed = speed
     player_dead.direction = direction
