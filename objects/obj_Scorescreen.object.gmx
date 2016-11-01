@@ -165,6 +165,9 @@ if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),restartx-219,res
 }
 
 //Check menu button
+if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),menux-219,menuy-92,menux+219,menuy+92) and mouse_check_button_pressed(mb_left) {
+    game_end()
+}
 </string>
           </argument>
         </arguments>
