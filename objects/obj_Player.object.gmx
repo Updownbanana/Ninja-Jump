@@ -252,8 +252,11 @@ if not pounce{
     y = room_height/2
     global.dist = room_height/2 - start
 
-    //Teleport all robots the same distance and scroll the background
+    //Teleport all robots and bullets the same distance
     with (obj_Robot) y += global.dist
+    with (obj_bullet) y += global.dist
+
+    // scroll the background
     background_y[0] -= global.dist
     
     //Finally, reset the start variable to get the height next time
