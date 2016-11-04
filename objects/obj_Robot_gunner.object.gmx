@@ -39,8 +39,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set alarm
+            <string>///Set alarm and variables
 alarm[0] = 90
+image_speed = 0.5
 </string>
           </argument>
         </arguments>
@@ -63,7 +64,8 @@ alarm[0] = 90
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(obj_Player){
+            <string>///Fire at the player
+if instance_exists(obj_Player) and not pounced{
     scr_gunner_shoot()
 }
 alarm[0] = 90
@@ -72,7 +74,7 @@ alarm[0] = 90
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,8 +91,12 @@ alarm[0] = 90
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-draw_text(x+10,y+10,alarm[0])
+            <string>///Set blinking sprite
+if alarm[0] &lt;= 30 {
+    sprite_index = spr_robot_gunner_blink
+}else{
+    sprite_index = spr_robot_gunner
+}
 </string>
           </argument>
         </arguments>

@@ -19,6 +19,7 @@
     <sprites name="Robots">
       <sprite>sprites\spr_robot</sprite>
       <sprite>sprites\spr_robot_gunner</sprite>
+      <sprite>sprites\spr_robot_gunner_blink</sprite>
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_robot_exploding</sprite>
       <sprite>sprites\spr_robot_explosion</sprite>
