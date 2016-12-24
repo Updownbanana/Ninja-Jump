@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Set starting variables
 zone = 0
+vspeed = 5
 </string>
           </argument>
         </arguments>

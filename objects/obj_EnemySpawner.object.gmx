@@ -31,7 +31,7 @@ randomize()
 current = 0
 destination = 0
 spawns = 0
-newz = 0
+//newzone = zones.normal
 
 //Zone enumerator
 enum zones {
@@ -68,10 +68,7 @@ switch (zone) {
     case zones.normal: scr_zone_normal() break
     case zones.minefield: scr_zone_minefield() break
     
-    case zones.change: 
-        scr_zone_change(newz)
-        zone = newz
-    break
+    case zones.change: zone = scr_zone_change() break
 }
 
 spawns += 1
@@ -95,16 +92,11 @@ spawns += 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///If enough enemies have been spawned, change zones. [DISABLED]
-/*
+            <string>///If enough enemies have been spawned, change zones.
+
 if spawns &gt;= 20 {
-    randomize()
-    r = zones.change - 1
-    newz = irandom_range(zones.normal,r)
-    
     zone = zones.change
 }
-*/
 </string>
           </argument>
         </arguments>

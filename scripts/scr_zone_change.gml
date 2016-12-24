@@ -1,6 +1,9 @@
 ///Change zones
-newz = argument0
-
-breaker = instance_create(room_width/2,y,obj_zone_breaker)
+breaker = instance_create(0,y,obj_zone_breaker)
 //breaker.zone = newz
-return newz //Debug line, delete later
+
+randomize()
+newzone = irandom_range(zones.normal,zones.change-1)
+return newzone
+
+alarm[0] = 20
