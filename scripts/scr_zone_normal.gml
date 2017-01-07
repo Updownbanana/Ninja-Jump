@@ -6,7 +6,7 @@ if (abs(destination - current) > 20){
 
     //Spawn robots
     x = destination
-    if type >= 5 and type <= 6 then instance_create(x,y,obj_Robot_exploding)
+    if type == 5 or type == 6 then instance_create(x,y,obj_Robot_exploding)
     else if type = 10 then instance_create(x,y,obj_Robot_gunner)
     else instance_create(x,y,obj_Robot)
     

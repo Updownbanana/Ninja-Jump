@@ -37,6 +37,7 @@ spawns = 0
 enum zones {
     normal,
     minefield,
+    
     change //When adding new zones, add them ABOVE this line.
 }
 
@@ -68,7 +69,10 @@ switch (zone) {
     case zones.normal: scr_zone_normal() break
     case zones.minefield: scr_zone_minefield() break
     
-    case zones.change: zone = scr_zone_change() break
+    case zones.change: 
+    zone = scr_zone_change()
+    alarm[0] = 20
+    break
 }
 
 spawns += 1
@@ -96,6 +100,7 @@ spawns += 1
 
 if spawns &gt;= 20 {
     zone = zones.change
+    spawns = 0
 }
 </string>
           </argument>
