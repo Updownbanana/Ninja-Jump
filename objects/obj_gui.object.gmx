@@ -111,6 +111,40 @@ draw_set_color(c_blue)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw image (currently placeholder text) based on zone
+if instance_exists(obj_EnemySpawner){
+
+    spawner = instance_find(obj_EnemySpawner,1)
+    zone = spawner.zone
+    img_y = view_hport[0] - 15
+    img_x = view_wport[0] - 15
+
+    switch zone{
+        case zones.normal: draw_text(img_x,img_y,"0") break
+        case zones.minefield: draw_text(img_x,img_y,"1") break
+    }
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

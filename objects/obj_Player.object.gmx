@@ -337,16 +337,16 @@ if pounce{
 }
 
 //Jump if there is a jump available
-//if jump &gt; 0{
+if jump &gt; 0{
     dir = point_direction(x+16,y+16,mouse_x,mouse_y)
     hspeed = lengthdir_x(10,dir)
     vspeed = lengthdir_y(10,dir)
     
-    //jump -= 1
+    jump -= 1
     
     sprite_index = spr_player_jump
     audio_play_sound(snd_Jump,1,false)
-//}
+}
 </string>
           </argument>
         </arguments>
