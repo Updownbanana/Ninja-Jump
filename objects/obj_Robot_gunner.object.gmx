@@ -92,7 +92,7 @@ alarm[0] = 90
           <argument>
             <kind>1</kind>
             <string>///Set blinking sprite
-if alarm[0] &lt;= 30 {
+if alarm[0] &lt;= 30 and not pounced {
     sprite_index = spr_robot_gunner_blink
 }else{
     sprite_index = spr_robot_gunner
