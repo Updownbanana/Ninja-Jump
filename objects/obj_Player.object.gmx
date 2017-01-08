@@ -256,8 +256,11 @@ if not pounce{
     with (obj_Robot) y += global.dist
     with (obj_bullet) y += global.dist
     with (obj_zone_breaker) y += global.dist
+    with (obj_Robot_half1) y += global.dist
+    with (obj_Robot_half2) y+= global.dist
+    
 
-    // scroll the background
+    //Scroll the background
     background_y[0] -= global.dist
     
     //Finally, reset the start variable to get the height next time

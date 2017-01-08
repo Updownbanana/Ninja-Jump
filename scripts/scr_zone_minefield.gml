@@ -5,8 +5,8 @@ if (abs(destination - current) > 20){
 
     //Spawn robots
     x = destination
-    exploding = irandom_range(1,3)
-    if exploding = 3 instance_create(x,y,obj_Robot_exploding)
+    exploding = irandom_range(1,2)
+    if exploding = 2 instance_create(x,y,obj_Robot_exploding)
     else instance_create(x,y,obj_Robot)
     
     alarm[0] = 20
