@@ -374,8 +374,8 @@ if jump &gt; 0{
             <kind>1</kind>
             <string>///Debugging
 draw_self()
-spawner = instance_find(obj_EnemySpawner,1)
-draw_text(x,y+30,string(spawner.alarm[0]))
+//spawner = instance_find(obj_EnemySpawner,1)
+//draw_text(x,y+30,"69")
 </string>
           </argument>
         </arguments>

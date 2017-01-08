@@ -26,14 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>///Set starting variables
-zone = 0
+//zone = 0
 vspeed = 5
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_Player">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,7 +50,12 @@ vspeed = 5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///Detect collision and set zone indicator
+if collision_rectangle(x,y,x+room_width,y+3,obj_Player,false,true){
+    gui = instance_find(obj_gui,1)
+    gui.zone = zone
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -72,8 +77,10 @@ vspeed = 5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>///Stretch self
+//draw_self()
 draw_sprite_stretched(spr_zone_breaker,0,x,y,room_width,sprite_height)
+draw_text(x+50,y,string(zone))
 </string>
           </argument>
         </arguments>
