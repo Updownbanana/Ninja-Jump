@@ -10,4 +10,5 @@ with bullet {
     image_angle = dir 
     speed = 6
     vspeed += 5
+    alarm[0] = 150
 }

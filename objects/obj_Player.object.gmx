@@ -330,6 +330,7 @@ if pounce{
         switch (robot_name) {
             case "obj_Robot":           score += 10; break;
             case "obj_Robot_exploding": score += 20; break;
+            case "obj_Robot_gunner":    score += 30; break;
         }
         instance_destroy()
     }
