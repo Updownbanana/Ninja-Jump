@@ -328,9 +328,10 @@ if pounce{
     with (robot) {
         robot_name = object_get_name(object_index);
         switch (robot_name) {
-            case "obj_Robot":           score += 10; break;
-            case "obj_Robot_exploding": score += 20; break;
-            case "obj_Robot_gunner":    score += 30; break;
+            case "obj_Robot":           score += 10; break
+            case "obj_Robot_exploding": score += 20; break
+            case "obj_Robot_gunner":    score += 30; break
+            case "obj_Robot_splitter":  score += 10; scr_splitter_split(); break
         }
         instance_destroy()
     }

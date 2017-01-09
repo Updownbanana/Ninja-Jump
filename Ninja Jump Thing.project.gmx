@@ -18,6 +18,9 @@
     </sprites>
     <sprites name="Robots">
       <sprite>sprites\spr_robot</sprite>
+      <sprite>sprites\spr_robot_splitter</sprite>
+      <sprite>sprites\spr_robot_split1</sprite>
+      <sprite>sprites\spr_robot_split2</sprite>
       <sprite>sprites\spr_robot_gunner</sprite>
       <sprite>sprites\spr_robot_gunner_blink</sprite>
       <sprite>sprites\spr_bullet</sprite>
@@ -47,6 +50,7 @@
   <scripts name="scripts">
     <script>scripts\scr_player_kill.gml</script>
     <script>scripts\scr_gunner_shoot.gml</script>
+    <script>scripts\scr_splitter_split.gml</script>
     <scripts name="Zones">
       <script>scripts\scr_zone_normal.gml</script>
       <script>scripts\scr_zone_change.gml</script>
@@ -61,6 +65,8 @@
       <object>objects\obj_Robot_gunner</object>
       <object>objects\obj_bullet</object>
       <object>objects\obj_Robot_exploding</object>
+      <object>objects\obj_Robot_splitter</object>
+      <object>objects\obj_Robot_split</object>
       <object>objects\obj_Robot_half1</object>
       <object>objects\obj_Robot_half2</object>
     </objects>
